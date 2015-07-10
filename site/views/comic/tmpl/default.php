@@ -1,6 +1,6 @@
 <?php
 /**
- * @version     0.0.2
+ * @version     0.0.3
  * @package     com_comicker
  * @copyright   Copyright (C) 2015. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,8 +12,10 @@ defined('_JEXEC') or die;
 
 ?>
 <?php if ($this->item) : ?>
-
-    <div class="item_fields">
+  <?php
+    echo JText::_('COM_COMICKER_FORM_LBL_COMIC_COMICTITLE') . " " . $this->item->title . "<br /> By: " . $this->created_by_name . "<br /> Chapters: " . print_r($this->getChapters($this->item->id));
+  ?>
+<!--    <div class="item_fields">
         <table class="table">
             <tr>
 			<th><?php echo JText::_('COM_COMICKER_FORM_LBL_COMIC_ID'); ?></th>
@@ -95,7 +97,8 @@ defined('_JEXEC') or die;
 
         </table>
     </div>
-    
+-->
+
     <?php
 else:
     echo JText::_('COM_COMICKER_ITEM_NOT_LOADED');

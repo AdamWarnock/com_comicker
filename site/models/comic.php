@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version     0.0.2
+ * @version     0.0.3
  * @package     com_comicker
  * @copyright   Copyright (C) 2015. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -17,6 +17,11 @@ jimport('joomla.event.dispatcher');
  * Comicker model.
  */
 class ComickerModelComic extends JModelItem {
+
+    /**
+      * Members of the ComickerModelComic class.
+      */
+
 
     /**
      * Method to auto-populate the model state.
@@ -81,7 +86,7 @@ class ComickerModelComic extends JModelItem {
             }
         }
 
-        
+
 		if ( isset($this->_item->created_by) ) {
 			$this->_item->created_by_name = JFactory::getUser($this->_item->created_by)->name;
 		}
@@ -213,4 +218,26 @@ class ComickerModelComic extends JModelItem {
         return $table->delete($id);
     }
 
+    /**
+      *Retrieve list of chapters and subchapters
+      *
+      * @param	integer		The id of the row to check out.
+      * @return	mixed		Array of chapters on success, false on failure.
+      */
+    public function getChapters($id){
+        $params = [
+          "filter_fields" => [
+                              "parentcomic" => $id,
+                            ],
+        ];
+        if(new ComickerModelChapters($params)){
+          $comicChapters = new ComickerModelChapters($params);
+          return $comicChapters;
+        }
+        else {
+          return false;
+        }
+        }
+
+    }
 }

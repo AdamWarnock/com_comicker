@@ -195,11 +195,11 @@ if (empty($list['direction']))
 
 		$query->from('`#__comicker_chapters` AS a');
 
-		
+
     // Join over the users for the checked out user.
     $query->select('uc.name AS editor');
     $query->join('LEFT', '#__users AS uc ON uc.id=a.checked_out');
-    
+
 		// Join over the created by field 'created_by'
 		$query->join('LEFT', '#__users AS created_by ON created_by.id = a.created_by');
 		// Join over the foreign key 'parentcomic'
@@ -209,7 +209,7 @@ if (empty($list['direction']))
 		$query->select('#__comicker_chapters_1951364.id AS chapters_id_1951364');
 		$query->join('LEFT', '#__comicker_chapters AS #__comicker_chapters_1951364 ON #__comicker_chapters_1951364.id = a.parentchapter');
 
-		
+
 if (!JFactory::getUser()->authorise('core.edit.state', 'com_comicker'))
 {
 	$query->where('a.state = 1');
@@ -230,7 +230,7 @@ if (!JFactory::getUser()->authorise('core.edit.state', 'com_comicker'))
 			}
 		}
 
-		
+
 
 		//Filtering parentcomic
 		$filter_parentcomic = $this->state->get("filter.parentcomic");
@@ -259,7 +259,7 @@ if (!JFactory::getUser()->authorise('core.edit.state', 'com_comicker'))
 	{
 		$items = parent::getItems();
 		foreach($items as $item){
-	
+
 
 				if ( isset($item->chaptertags) ) {
 					// Catch the item tags (string with ',' coma glue)
@@ -384,5 +384,13 @@ if (!JFactory::getUser()->authorise('core.edit.state', 'com_comicker'))
 	{
 		return preg_match("/^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])$/", $date) && date_create($date);
 	}
-
+	/**
+	 * Retrieves child chapters of a given chapter
+	 *
+	 * @param integer The id of the parent chapter
+	 * @return mixed Array of chapters or false if no chapters are found.
+	 */
+	public function getSubChapters($id){
+		return false;
+	}
 }
