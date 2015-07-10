@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="search">
+    <name>plg_search_comicker</name>
+    <author>Adam Warnock</author>
+    <creationDate>2015-07-07</creationDate>
+    <copyright>Copyright (C) 2015. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>salsa.the.geek@gmail.com</authorEmail>
+    <authorUrl>http://radboxstudio.com</authorUrl>
+    <version>0.0.2</version>
+    <description>PLG_SEARCH_COM_COMICKER_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="comicker">comicker.php</filename>
+        <filename>index.html</filename>
+    </files>
+    <languages folder="../../../languages/site/search/comicker">
+        
+			<language tag="en-AU">../../../languages/plugins/search/comicker/en-AU/en-AU.plg_search_comicker.ini</language>
+			<language tag="en-AU">../../../languages/plugins/search/comicker/en-AU/en-AU.plg_search_comicker.sys.ini</language>
+			<language tag="en-GB">../../../languages/plugins/search/comicker/en-GB/en-GB.plg_search_comicker.ini</language>
+			<language tag="en-GB">../../../languages/plugins/search/comicker/en-GB/en-GB.plg_search_comicker.sys.ini</language>
+			<language tag="en-US">../../../languages/plugins/search/comicker/en-US/en-US.plg_search_comicker.ini</language>
+			<language tag="en-US">../../../languages/plugins/search/comicker/en-US/en-US.plg_search_comicker.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+
+            <fieldset name="basic">
+                <field name="search_limit" type="text" default="50" size="5"
+                       description="PLG_SEARCH_COM_COMICKER_FIELD_SEARCHLIMIT_DESC"
+                       label="PLG_SEARCH_COM_COMICKER_FIELD_SEARCHLIMIT_LABEL" />
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>
